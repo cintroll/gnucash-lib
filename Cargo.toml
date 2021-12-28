@@ -1,5 +1,5 @@
 [package]
-name = "gnucash-lib"
+name = "gnucash"
 version = "0.1.0"
 edition = "2018"
 
@@ -7,3 +7,7 @@ edition = "2018"
 
 [dependencies]
 flate2 = "1.0.21"
+
+[[example]]
+name = "open_gnucash"
+path = "examples/open_gnucash.rs"

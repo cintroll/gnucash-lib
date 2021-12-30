@@ -3,17 +3,14 @@ use std::io::BufReader;
 use std::io::copy;
 use flate2::read::GzDecoder;
 
-pub struct GnuCash;
 
-impl GnuCash {
-    pub fn open(&self, path: &str) -> Result<(), std::io::Error>  {
-        let gnucash = File::open(path)?;
-        let mut xml = BufReader::new(GzDecoder::new(gnucash));
+pub fn open(path: &str) -> Result<(), std::io::Error>  {
+    let gnucash = File::open(path)?;
+    let mut xml = BufReader::new(GzDecoder::new(gnucash));
 
-        let mut gnucash_xml = File::create("/home/matheus/workspace/gnucash-lib/examples/account.xml")?;
+    let mut gnucash_xml = File::create("/home/matheus/workspace/gnucash-lib/examples/account.xml")?;
 
-        let _ = copy(&mut xml, &mut gnucash_xml);
-    
-        Ok(())
-    }
+    let _ = copy(&mut xml, &mut gnucash_xml);
+
+    Ok(())
 }

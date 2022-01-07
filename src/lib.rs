@@ -3,6 +3,7 @@ use std::io::BufReader;
 use flate2::read::GzDecoder;
 
 mod book;
+mod account;
 
 pub fn open(path: &str) {
     let gnucash = File::open(path).unwrap();
